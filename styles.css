@@ -1,0 +1,1278 @@
+/* =========================================================
+   Anastasiia Dronova — portfolio page
+   Figma: dictionary / node 78:7311
+
+   Desktop-first. The base layer reproduces the Figma frame
+   (1280 × 3303) pixel for pixel; the media queries below take
+   over on narrower viewports. Letter-spacing is written in `em`
+   so the Figma tracking stays correct at any font size.
+   ========================================================= */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+}
+
+p, h1, h2, h3 { margin: 0; }
+a { text-decoration: none; color: inherit; }
+
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.container {
+  padding-left: 42px;
+  padding-right: 43px;
+}
+
+/* ---------- image placeholders ---------- */
+
+.ph {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #e9e9e9;
+  box-shadow: inset 0 0 0 1px #c7c7c7;
+  color: #9a9a9a;
+  font: 400 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.ph--dark {
+  background: #1f1f1f;
+  box-shadow: inset 0 0 0 1px #3d3d3d;
+  color: #6e6e6e;
+}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+/* the colour is pinned because the case pages invert the page text to white */
+.topbar {
+  position: static;
+  z-index: 20;
+  height: 74px;
+  margin: 0 43px 0 35px;
+  border-radius: 0 0 20px 20px;
+  background: #f9f9f9;
+  color: #1a1a1a;
+}
+
+.topbar--home {
+  position: sticky;
+  top: 0;
+}
+
+.topbar__inner {
+  position: relative;
+  height: 100%;
+  padding: 0 19px 0 20px;
+}
+
+/* the wrapper is transparent here — nav and contact keep the exact Figma
+   offsets; it only becomes a real box once the layout goes fluid */
+.topbar__right { display: contents; }
+
+.topbar__brand,
+.topbar__nav,
+.topbar__contact {
+  position: absolute;
+}
+
+.topbar__brand {
+  left: 20px;
+  top: 26px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* the three links sit on measured offsets rather than on a gap, because
+   browser text advances differ slightly from Figma's reported widths */
+.topbar__nav {
+  left: 614px;
+  top: 28px;
+  width: 298px;
+  height: 19px;
+}
+
+.topbar__nav a { position: absolute; top: 0; }
+
+.topbar__nav a:nth-child(1) { left: 0; }
+.topbar__nav a:nth-child(2) { left: 104px; }
+.topbar__nav a:nth-child(3) { left: 234px; }
+
+.topbar__nav a,
+.topbar__contact {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: -0.06em;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.topbar__contact { left: 1102px; top: 28px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 587px 588px;
+  column-gap: 20px;
+  align-items: start;
+}
+
+.hero__text { padding-top: 105px; }
+
+.hero__title {
+  max-width: 562px;
+  font-weight: 500;
+  font-size: 115px;
+  line-height: 1;
+  letter-spacing: -0.07em;
+}
+
+.hero__lead {
+  max-width: 548px;
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: rgba(26, 26, 26, .7);
+}
+
+.hero__actions {
+  display: flex;
+  margin-top: 32px;
+}
+
+.btn {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border: 1px solid #242424;
+  background: #242424;
+  color: #fff;
+}
+
+.btn--pill {
+  width: 166px;
+  padding: 0 24px;
+  border-radius: 36px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.btn--round {
+  width: 44px;
+  margin-left: -2px;
+  border-radius: 50%;
+}
+
+.icon-arrow-diag {
+  width: 30px;
+  height: 30px;
+  transition: rotate .2s;
+}
+
+.icon-arrow-diag:hover {
+  rotate: 45deg;
+}
+
+/* --- portrait block --- */
+
+.hero__visual {
+  position: relative;
+  margin-top: 73px;
+  aspect-ratio: 588 / 437;
+  border-radius: 32px;
+  background: #000;
+  overflow: hidden;
+}
+
+.hero__ring {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.hero__ring--outer {
+  left: -11.7347%;
+  top: 6.1785%;
+  width: 123.6395%;
+  background: #1c1c1c;
+}
+
+.hero__ring--inner {
+  left: 3.5714%;
+  top: 29.5195%;
+  width: 92.8571%;
+  background: #262626;
+}
+
+.hero__photo {
+  left: 14.2857%;
+  top: 0;
+  width: 100%;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, .06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16);
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about {
+  display: grid;
+  grid-template-columns: 587px 588px;
+  column-gap: 20px;
+  align-items: start;
+}
+
+.about__intro { padding-top: 120px; }
+
+.eyebrow {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #cecece;
+}
+
+.section-title {
+  max-width: 562px;
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -0.07em;
+}
+
+.about__intro .section-title { margin-top: 26px; }
+
+.lead {
+  max-width: 548px;
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: rgba(26, 26, 26, .7);
+}
+
+/* --- numbers --- */
+
+.stats {
+  display: flex;
+  gap: 82px;
+  margin-top: 70px;
+}
+
+.stat--sm { width: 82px; }
+.stat--lg { width: 149px; text-align: center; }
+
+.stat__label {
+  margin-bottom: 9px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: rgba(26, 26, 26, .3);
+}
+
+.stat__rule {
+  display: block;
+  height: 1px;
+  margin-bottom: 10px;
+  background: #d6d6d6;
+}
+
+.stat__value {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: #242424;
+}
+
+/* --- services accordion --- */
+
+.services { padding-top: 168px; }
+
+.services__item {
+  padding-bottom: 23px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.services__item + .services__item { margin-top: 24px; }
+
+.services__row {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  height: 36px;
+}
+
+.services__name {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.services__desc {
+  padding-top: 16px;
+  line-height: 1.4;
+  padding-right: 46px;
+  height: fit-content;
+  color: #1A1A1A;
+  transition: height .5s, opacity .5s;
+  opacity: 0.7;
+}
+
+.services__desc_hidden {
+  display: none;
+  padding-top: 0;
+  opacity: 0;
+}
+
+.icon-plus {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s ease;
+}
+
+.icon-plus path {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform-origin: center;
+}
+
+.services__row.is-open .icon-plus {
+  width: 36px;
+  height: 2px;
+  background-image: url("assets/minus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.services__row.is-open .icon-plus path {
+  display: none;
+}
+
+/* =========================================================
+   WORK
+   ========================================================= */
+
+.work { padding-top: 120px; }
+
+.work .section-title { margin-top: 24px; }
+.work .section-title--logo { margin-top: 120px; }
+
+/* --- project cards --- */
+
+.cards {
+  display: grid;
+  grid-template-columns: 587px 587px;
+  column-gap: 20px;
+  row-gap: 40px;
+  margin-top: 60px;
+}
+
+.card_0 {
+  position: relative;
+  aspect-ratio: 587 / 360;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 587 / 360;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.card__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 137px;
+  background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.card--light { background: #f7f5fb; }
+
+.card__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden; /* the Solstarn stage is taller than the artwork box */
+}
+
+.card__body {
+  z-index: 1;
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 30px;
+}
+
+.card__art {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__art--wide {
+  left: -12.4361%;
+  width: 124.8722%;
+}
+
+.card__art__img {
+  width: 100%;
+}
+
+.card__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 137px;
+  background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.card__title {
+  margin-bottom: 10.4px;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.card--light .card__title { color: #15034c; }
+
+.card__tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tw, auto);
+  height: 28px;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 36px;
+  background: rgba(220, 217, 255, .1);
+  -webkit-backdrop-filter: blur(6.65px);
+  backdrop-filter: blur(6.65px);
+  overflow: hidden;
+  font-family: Manrope, Inter, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  color: rgba(255, 255, 255, .8);
+  white-space: nowrap;
+}
+
+.card--light .tag {
+  border-color: rgba(21, 3, 76, .2);
+  background: rgba(21, 3, 76, 0);
+  color: rgba(21, 3, 76, .8);
+}
+
+/* IT Company — gradient badge */
+.pill {
+  position: absolute;
+  left: 18.7394%;
+  top: 41.3889%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 367px;
+  max-width: calc(100% - 44px);
+  height: 62px;
+  padding: 0 20px;
+  border-radius: 61px;
+  background: linear-gradient(90deg, #9361ff 0%, #ef278a 50%, #ff6101 100%);
+  box-shadow: 9.71px 9.71px 13.594px rgba(255, 97, 1, .19);
+  font-family: Onest, Inter, sans-serif;
+  font-weight: 600;
+  font-size: 33px;
+  line-height: 1.4;
+  color: #fff;
+  white-space: pre;
+}
+
+/* Solstarn — photo stage + watch face */
+.solstarn__stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 115.9506%;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.solstarn__photo {
+  left: 0;
+  top: -13.4159%;
+  width: 100%;
+  height: 105.4093%;
+  align-items: flex-start;
+  padding-top: 17%;
+}
+
+.solstarn__watch {
+  position: absolute;
+  left: 40.8859%;
+  top: 22.0405%;
+  width: 18.9097%;
+  height: 31.6224%;
+  border-radius: 34px;
+  background: #1e1e1e;
+}
+
+.solstarn__mark {
+  left: 46.6780%;
+  top: 32.5810%;
+  width: 7.3254%;
+  height: 10.5409%;
+  font-size: 9px;
+}
+
+/* Adatavi — headline banner */
+.adatavi__banner {
+  left: 17.7172%;
+  top: 40%;
+  width: 64.7359%;
+  height: 14.4444%;
+}
+
+/* --- logo grid --- */
+
+.logogrid {
+  display: grid;
+  grid-template-columns: 299px 299px 299px 298px;
+  grid-template-rows: 183px 182px;
+  margin-top: 60px;
+}
+
+.logogrid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* dividers are drawn as inset shadows so they cost no layout space and the
+   cells keep the exact 299 / 183 geometry of the Figma grid */
+.logogrid__cell:not(:nth-child(4n + 1)) { box-shadow: inset 1px 0 0 #e2e2e2; }
+.logogrid__cell:nth-child(-n + 4)       { box-shadow: inset 0 -1px 0 #e2e2e2; }
+.logogrid__cell:nth-child(-n + 4):not(:nth-child(4n + 1)) {
+  box-shadow: inset 1px 0 0 #e2e2e2, inset 0 -1px 0 #e2e2e2;
+}
+
+/* --lw / --lh are unitless so they can feed both calc() and aspect-ratio */
+.logo {
+  position: relative;
+  width: calc(var(--lw) * 1px);
+  height: calc(var(--lh) * 1px);
+  max-width: 100%;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 123px;
+  margin-top: 63px;
+  padding: 0 44px 0 42px;
+  background: #202020;
+}
+
+.cta__link {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cta__container {
+  display: flex;
+  padding-left: 42px;
+  padding-right: 43px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.cta__title {
+  margin-bottom: 1px; /* nudges the flex-centred baseline onto Figma's y = 38 */
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: #fff;
+}
+
+/* the Figma asset is an up arrow that the design turns on its side */
+.cta__arrow {
+  padding-left: 0;
+  transition: padding .8s;
+  flex: none;
+  width: 65px;
+  height: 65px;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   CASE STUDY PAGES
+   Dark canvas on the same 587 / 588 grid as the home page.
+   Vertical rhythm is driven by a per-section --mt so the
+   scaled-down spacing on small screens stays proportional.
+   ========================================================= */
+
+body.case-page {
+  background: #202020;
+  color: #fff;
+}
+
+/* flow-root so the first section's margin stays inside the element */
+.case { display: flow-root; }
+
+.case > * { margin-top: var(--mt, 120px); }
+
+.case-row {
+  display: grid;
+  grid-template-columns: 587px 588px;
+  column-gap: 20px;
+  align-items: start;
+}
+
+/* several rows start their right-hand column below the left one */
+.case-row__late { padding-top: 53px; }
+
+.case-stack > * + * { margin-top: 24px; }
+
+.case-title {
+  max-width: 562px;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.07em;
+}
+
+.case-h2 {
+  max-width: 562px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: -0.03em;
+}
+
+/* Figma sets this copy on a 22px line box — not 16 × 1.4 — and every text
+   frame in the file measures an exact multiple of 22 */
+.case-text {
+  max-width: min(var(--w, 548px), 100%);
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, .7);
+}
+
+.case-text strong { font-weight: 600; color: #fff; }
+
+/* a blank line inside a Figma text frame is a real, empty 22px line */
+.case-text p + p { margin-top: 22px; }
+
+.case-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.case .tag { background: rgba(255, 255, 255, .03); }
+
+/* a column holding two text blocks that line up with a tall neighbour */
+.case-col > * + * { margin-top: var(--gap, 64px); }
+
+/* ---------- media boxes ---------- */
+
+/* stand-in for artwork; --ar carries the Figma aspect ratio so the box keeps
+   its proportions once the columns go fluid */
+.case-ph {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: var(--ar);
+  border-radius: 12px;
+  overflow: hidden;
+  font: 400 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.case-ph__img {
+  width: 100%;
+}
+
+.case-ph__with_label {
+  display: block;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.case-ph__label {
+  padding-bottom: 24px;
+  font-size: 18px;
+  font-family: Inter;
+  letter-spacing: -0.03em;
+}
+
+.case-trio {
+  padding-bottom: 20px;
+  padding-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.case-ph-limited {
+  max-width: 588px;
+}
+
+/* reserved for a future <iframe> — deliberately left empty */
+.case-frame {
+  aspect-ratio: var(--ar);
+  border-radius: 12px;
+}
+
+.case-dragviewport {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #323232;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.case-dragviewport.is-dragging {
+  cursor: grabbing;
+}
+
+.case-dragviewport__track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform .08s ease-out;
+}
+
+.case-dragviewport__track img {
+  display: block;
+  width: 180%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.case-dragviewport__hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(18, 18, 18, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.case-dragviewport__hint img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.9;
+}
+
+.case-digest {
+  display: grid;
+  border-radius: 12px;
+  overflow: hidden;
+  gap: 0;
+}
+
+.case-digest--scroll {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.case-digest--scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.case-digest img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* a wide cover with a rounded avatar hanging below it; the padding is a
+   percentage so the overhang scales with the box */
+.case-cover { position: relative; }
+
+/* the percentages are read off the whole cover box, overhang included */
+.case-cover__avatar {
+  position: absolute;
+  left: 8.75%;
+  top: 54.1914%;
+  width: 16%;
+  aspect-ratio: 1;
+  border: 3px solid #fff;
+  border-radius: 12px;
+}
+
+/* pairs of equal media boxes, e.g. presentation spreads */
+.case-pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ---------- numbered step list ---------- */
+
+.case-steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-steps__row {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.case-steps__name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.case-steps__desc {
+  margin: 0;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, .70);
+}
+
+.case-steps__desc_hidden {
+  display: none;
+  padding-top: 0;
+}
+
+.case-steps__row.is-open .icon-plus {
+  width: 36px;
+  height: 2px;
+  background-image: url("assets/minus_white.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.case-steps__row.is-open .icon-plus path {
+  display: none;
+}
+
+/* Adatavi hero intro sticks until the next section begins */
+.adatavi-hero {
+  align-items: flex-start;
+}
+
+.adatavi-intro {
+  position: sticky;
+  top: 104px;
+  align-self: flex-start;
+}
+
+@media (max-width: 1023px) {
+  .adatavi-intro {
+    position: static;
+    top: auto;
+  }
+}
+
+/* the rule is drawn on top of its own box so it costs no vertical space,
+   exactly like the zero-height lines in the Figma frame */
+.case-steps__rule {
+  height: 1px;
+  margin-top: 7px;
+  background: rgba(255, 255, 255, .2);
+}
+
+/* ---------- inset panel ---------- */
+
+.case-panel {
+  aspect-ratio: 1195 / 590;
+  padding: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #272727;
+}
+
+/* ---------- closing call to action ---------- */
+
+.case-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 29px 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.case-cta .cta__title { margin-bottom: 0; }
+
+/* =========================================================
+   ≤ 1279 — fluid columns and fluid type
+   ========================================================= */
+
+@media (max-width: 1279px) {
+
+  .hero,
+  .about  { grid-template-columns: 1fr 1fr; }
+  .cards  { grid-template-columns: 1fr 1fr; }
+
+  .logogrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .logogrid__cell { padding: 32px 12px; }
+
+  .logo {
+    width: min(calc(var(--lw) * 1px), 100%);
+    height: auto;
+    aspect-ratio: var(--lw) / var(--lh);
+  }
+
+  /* Two columns matching the page grid, so the nav always starts exactly at
+     the right-hand column. The 13px is the offset between the top bar's inset
+     (35px) and the container's (42px) once both halves are resolved. */
+  .topbar__inner {
+    display: grid;
+    grid-template-columns: calc(50% + 13px) 1fr;
+    align-items: center;
+  }
+
+  .topbar__brand,
+  .topbar__nav,
+  .topbar__nav a,
+  .topbar__contact {
+    position: static;
+    top: auto;
+    left: auto;
+  }
+
+  .topbar__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+  }
+
+  .topbar__nav {
+    display: flex;
+    width: auto;
+    height: auto;
+    gap: clamp(16px, 2.9vw, 37px);
+  }
+
+  /* fluid type */
+  .hero__title     { font-size: clamp(48px, 9vw, 115px); }
+  .section-title   { font-size: clamp(32px, 4.7vw, 60px); }
+  .services__name  { font-size: clamp(18px, 2.19vw, 28px); }
+  .card__title     { font-size: clamp(20px, 2.19vw, 28px); }
+  .cta__title      { font-size: clamp(24px, 3.6vw, 46px); }
+  .stat__value     { font-size: clamp(30px, 3.13vw, 40px); }
+  .pill            { font-size: clamp(16px, 2.58vw, 33px); }
+
+  .hero__lead,
+  .lead,
+  .eyebrow,
+  .stat__label,
+  .btn--pill       { font-size: clamp(16px, 1.57vw, 20px); }
+
+  /* widths measured off the Figma frame stop being useful */
+  .services__name  { width: auto; }
+  .tag             { width: auto; }
+
+  .pill {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: calc(100% - 44px);
+    height: auto;
+    padding: 8px 20px;
+  }
+
+  .stats { gap: clamp(24px, 6.4vw, 82px); }
+
+  .case-row        { grid-template-columns: 1fr 1fr; }
+
+  /* the wide gap only exists to meet a full-height image at the desktop size */
+  .case-col > * + * { margin-top: 64px; }
+
+  .case-title      { font-size: clamp(28px, 3.6vw, 46px); }
+  .case-h2         { font-size: clamp(19px, 1.88vw, 24px); }
+  .case-steps__name { font-size: clamp(14px, 1.41vw, 18px); }
+  .case-panel      { padding: clamp(24px, 3.13vw, 40px); }
+}
+
+/* =========================================================
+   ≤ 1023 — single column, tighter rhythm
+   ========================================================= */
+
+@media (max-width: 1023px) {
+
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .topbar { margin: 0 32px; }
+
+  /* container padding drops to 32px, so the column split shifts with it */
+  .topbar__inner { grid-template-columns: calc(50% + 9.5px) 1fr; }
+
+  /* the nav has to give up some width to stay clear of "Contact Me" */
+  .topbar__nav a,
+  .topbar__contact { font-size: 14px; }
+
+  .topbar__nav { gap: clamp(14px, 2.2vw, 24px); }
+
+  .hero,
+  .about {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+
+  .hero__text     { padding-top: 64px; }
+  .hero__visual   { margin-top: 0; }
+  .about__intro   { padding-top: 80px; }
+  .services       { padding-top: 0; }
+
+  .work                        { padding-top: 80px; }
+  .work .section-title--logo   { margin-top: 80px; }
+  .cards                       { row-gap: 24px; margin-top: 40px; }
+  .logogrid                    { margin-top: 40px; }
+  .cta                         { margin-top: 48px; }
+
+  /* below this width a card is too small to carry the caption as an overlay,
+     so the caption drops underneath the artwork */
+  .card { aspect-ratio: auto; }
+
+  .card__media {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 587 / 360;
+  }
+
+  .card__body {
+    position: static;
+    padding: 16px 20px 20px;
+  }
+
+  .card__title {
+    margin-bottom: 12px;
+    white-space: normal;
+  }
+
+  .card__tags { flex-wrap: wrap; }
+
+  /* case pages collapse to a single column and lose the staggered start */
+  .case > *          { margin-top: calc(var(--mt, 120px) * .6); }
+  .case-row          { grid-template-columns: 1fr; row-gap: 40px; }
+  .case-row__late    { padding-top: 0; }
+  .case-tags         { flex-wrap: wrap; }
+
+  /* the panel is sized by its copy once it can no longer hold the ratio */
+  .case-panel {
+    aspect-ratio: auto;
+    min-height: 320px;
+  }
+
+  .case-steps__row { height: auto; min-height: 36px; }
+}
+
+/* =========================================================
+   ≤ 767 — phones
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .topbar { height: auto; }
+
+  /* no right-hand column left to align to — brand and contact share the first
+     row, the nav wraps onto its own */
+  .topbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    padding: 16px 20px;
+  }
+
+  .topbar__right { display: contents; }
+
+  .topbar__nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+  }
+
+  .topbar__contact { margin-left: auto; }
+
+  .cards { grid-template-columns: 1fr; }
+
+  .logogrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .logogrid__cell,
+  .logogrid__cell:not(:nth-child(4n + 1)),
+  .logogrid__cell:nth-child(-n + 4),
+  .logogrid__cell:nth-child(-n + 4):not(:nth-child(4n + 1)) { box-shadow: none; }
+
+  .logogrid__cell:nth-child(even) { box-shadow: inset 1px 0 0 #e2e2e2; }
+
+  .logogrid__cell:not(:nth-last-child(-n + 2)) { box-shadow: inset 0 -1px 0 #e2e2e2; }
+
+  .logogrid__cell:nth-child(even):not(:nth-last-child(-n + 2)) {
+    box-shadow: inset 1px 0 0 #e2e2e2, inset 0 -1px 0 #e2e2e2;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 24px 32px;
+  }
+
+  .cta {
+    height: auto;
+    padding: 32px 20px;
+  }
+
+.container {
+  max
+}
+
+  .cta__arrow { width: 44px; height: 44px; }
+
+  .case > *      { margin-top: calc(var(--mt, 120px) * .45); }
+  .case-pairs    { grid-template-columns: 1fr; }
+  .case-cta      { padding: 24px 0; }
+}
+
+/* =========================================================
+   ≤ 480 — small phones
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .topbar { margin: 0 16px; }
+
+  .card { border-radius: 24px; }
+  .card__fade { height: 110px; }
+  .logogrid__cell { padding: 24px 8px; }
+}
